@@ -82,6 +82,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
         }
 
         #endregion
+        public Member SelectedMember { get; set; }
         public RelayCommand CreateTableCommand { get; private set; }
         public RelayCommand DeleteTableCommand { get; private set; }
         public RelayCommand AddMemberCommand { get; private set; }
@@ -235,6 +236,15 @@ namespace WpfDotNetMvvmTemplate.ViewModels
                         $"Height = {memberSelected.Height} " +
                     $"WHERE Id = {memberSelected.Id}"
                 );
+            }
+        }
+        public void SelectionChanged(IList selectedItems)
+        {
+            this.EditMemberCommand.RaiseCanExecuteChanged();
+            if (selectedItems.Count == 1)
+            {
+                this.EditingFirstName = this.SelectedMember.FirstName;
+                //...
             }
         }
         private void RevalueButtons() //when

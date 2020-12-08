@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Media.TextFormatting;
 using WpfDotNetMvvmTemplate.Models;
 using WpfDotNetMvvmTemplate.ViewModels;
 
@@ -18,7 +19,7 @@ namespace WpfDotNetMvvmTemplate.Views
 
         private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((MainWindowViewModel)this.DataContext).EditMemberCommand.RaiseCanExecuteChanged();
+            ((MainWindowViewModel)this.DataContext).SelectionChanged(this.DataGrid1.SelectedItems);
         }
     }
 }

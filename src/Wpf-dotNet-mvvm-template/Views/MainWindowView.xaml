@@ -39,7 +39,8 @@
                           Margin="0,0,10,0" IsReadOnly="True"
                           Background="#D8CCF9" AutoGenerateColumns="False" AlternatingRowBackground="#D8C0F9"
                           MouseDown="DataGrid_MouseDown"
-                          SelectionChanged="DataGrid1_SelectionChanged">
+                          SelectionChanged="DataGrid1_SelectionChanged"
+                          SelectedItem="{Binding Path=SelectedMember, Mode=OneWayToSource}">
                     <DataGrid.Resources>
                         <ResourceDictionary>
                             <Style x:Key="{x:Type DataGridCell}" TargetType="{x:Type DataGridCell}">
