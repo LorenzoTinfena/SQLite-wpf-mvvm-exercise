@@ -244,7 +244,9 @@ namespace WpfDotNetMvvmTemplate.ViewModels
             if (selectedItems.Count == 1)
             {
                 this.EditingFirstName = this.SelectedMember.FirstName;
-                //...
+                this.EditingLastName = this.SelectedMember.LastName;
+                this.EditingBirthDate = this.SelectedMember.BirthDate;
+                this.EditingHeight = this.SelectedMember.Height.ToString();
             }
         }
         private void RevalueButtons() //when
