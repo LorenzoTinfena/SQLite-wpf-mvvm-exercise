@@ -19,9 +19,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="#FFF7F9"
      Foreground="{DynamicResource MaterialDesignDarkBackground}"
-     FontFamily="Segoe UI" ResizeMode="CanResize"
-        
-                          KeyDown="DataGrid1_KeyDown">
+     FontFamily="Segoe UI" ResizeMode="CanResize">
     <Window.Resources>
         <converters:DateTimeToStringConverter x:Key="DateTimeToString"/>
     </Window.Resources>

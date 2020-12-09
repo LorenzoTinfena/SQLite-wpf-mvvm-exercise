@@ -181,7 +181,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
         private void AddMember(object obj)
         {
             if (this.EditsValid())
-            { 
+            {
                 // Find id
                 List<object[]> list = this.Run(@"
                                 SELECT Id FROM Members ORDER BY Id DESC LIMIT 1
@@ -212,7 +212,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
         private void EditMember(object obj)
         {
             //contraint: this.Members.Count = 1
-            
+
             if (this.EditsValid())
             {
                 // Add in UI
