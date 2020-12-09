@@ -217,25 +217,24 @@ namespace WpfDotNetMvvmTemplate.ViewModels
             if (this.EditsValid())
             {
                 // Add in UI
-                Member memberSelected = (Member)((IList)obj)[0];
-                memberSelected.FirstName = this.EditingFirstName;
-                memberSelected.LastName = this.EditingLastName;
-                memberSelected.BirthDate = this.EditingBirthDate;
-                memberSelected.Height = Convert.ToUInt16(new Regex("^[0-9]*$").Match(this.EditingHeight).Value);
-
-                int index = this.Members.IndexOf(memberSelected);
-                this.Members[index] = new Member(fromMember: memberSelected);
+                this.SelectedMember.FirstName = this.EditingFirstName;
+                this.SelectedMember.LastName = this.EditingLastName;
+                this.SelectedMember.BirthDate = this.EditingBirthDate;
+                this.SelectedMember.Height = Convert.ToUInt16(new Regex("^[0-9]*$").Match(this.EditingHeight).Value);
 
                 // Add in db
                 this.Run(@"
                     UPDATE Members " +
-                    $"SET LastName = '{memberSelected.LastName}'," +
+                    $"SET LastName = '{this.SelectedMember.LastName}'," +
 
-                        $"FirstName = '{memberSelected.FirstName}'," +
-                        $"BirthDate = '{memberSelected.BirthDate.ToString("d")}'," +
-                        $"Height = {memberSelected.Height} " +
-                    $"WHERE Id = {memberSelected.Id}"
+                        $"FirstName = '{this.SelectedMember.FirstName}'," +
+                        $"BirthDate = '{this.SelectedMember.BirthDate.ToString("d")}'," +
+                        $"Height = {this.SelectedMember.Height} " +
+                    $"WHERE Id = {this.SelectedMember.Id}"
                 );
+
+                int index = this.Members.IndexOf(this.SelectedMember);
+                this.Members[index] = new Member(fromMember: this.SelectedMember);
             }
         }
         public void SelectionChanged(IList selectedItems)
@@ -258,7 +257,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
         }
         private List<object[]> Run(string query) //run a query to the db
         {
-            Log.Standard("Running query:\n" + query);
+            Log.Standard("Running query:" + query);
             LinkedList<object[]> res = new LinkedList<object[]>();
             using (SQLiteCommand command = new SQLiteCommand(query, this.SqliteConnection))
             {

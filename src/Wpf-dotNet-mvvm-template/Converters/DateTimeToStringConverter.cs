@@ -13,8 +13,6 @@ namespace WpfDotNetMvvmTemplate.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            Log.Standard(targetType);
-            Log.Standard(value);
             return ((DateTime)value).ToString("d");
         }
 
