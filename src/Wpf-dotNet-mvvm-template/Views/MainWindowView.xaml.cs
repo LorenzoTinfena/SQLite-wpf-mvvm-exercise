@@ -21,5 +21,13 @@ namespace WpfDotNetMvvmTemplate.Views
         {
             ((MainWindowViewModel)this.DataContext).SelectionChanged(this.DataGrid1.SelectedItems);
         }
+
+        private void DataGrid1_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Cancel || e.Key == System.Windows.Input.Key.Delete)
+            {
+                
+            }
+        }
     }
 }

@@ -87,6 +87,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
         public RelayCommand DeleteTableCommand { get; private set; }
         public RelayCommand AddMemberCommand { get; private set; }
         public RelayCommand EditMemberCommand { get; private set; }
+        public RelayCommand DeleteMembersSelectedCommand { get; private set; }
         #endregion
 
         private SQLiteConnection SqliteConnection = null;
@@ -103,6 +104,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
             this.DeleteTableCommand = new RelayCommand(this.DeleteTable, this.TableExist);
             this.AddMemberCommand = new RelayCommand(this.AddMember, this.TableExist);
             this.EditMemberCommand = new RelayCommand(this.EditMember, this.OneMemberSelected);
+            this.DeleteMembersSelectedCommand = new RelayCommand(this.DeleteMembersSelected, this.AtLeastOneMemberSelected);
 
             this.SqliteConnection = new SQLiteConnection(@"Data Source=members.db;datetimeformat=CurrentCulture");
             this.SqliteConnection.Open();
@@ -166,7 +168,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
                 this.AlertLabel = "Invalid last name";
             else if (this.EditingBirthDate >= DateTime.Now)
                 this.AlertLabel = "Invalid birth date";
-            else if (!(reg = new Regex("^[0-9]*$").Match(this.EditingHeight)).Success)
+            else if (!(reg = new Regex("[0-9]").Match(this.EditingHeight)).Success)
                 this.AlertLabel = "Invalid height";
             else
                 return true;
@@ -206,10 +208,7 @@ namespace WpfDotNetMvvmTemplate.ViewModels
                 );
             }
         }
-        private bool OneMemberSelected(object obj)
-        {
-            return ((IList)obj).Count == 1;
-        }
+        private bool OneMemberSelected(object obj) => ((IList)obj).Count == 1;
         private void EditMember(object obj)
         {
             //contraint: this.Members.Count = 1
@@ -237,9 +236,21 @@ namespace WpfDotNetMvvmTemplate.ViewModels
                 this.Members[index] = new Member(fromMember: this.SelectedMember);
             }
         }
+        private bool AtLeastOneMemberSelected(object obj) => this.SelectedMember != null;
+        private void DeleteMembersSelected(object obj)
+        {
+            foreach (Member member in ((IList)obj).Cast<Member>().ToList())
+            {
+                this.Members.Remove(member);
+                this.Run(
+                    $"DELETE FROM Members WHERE Id={member.Id}"
+                );
+            }
+        }
         public void SelectionChanged(IList selectedItems)
         {
             this.EditMemberCommand.RaiseCanExecuteChanged();
+            this.DeleteMembersSelectedCommand.RaiseCanExecuteChanged();
             if (selectedItems.Count == 1)
             {
                 this.EditingFirstName = this.SelectedMember.FirstName;
