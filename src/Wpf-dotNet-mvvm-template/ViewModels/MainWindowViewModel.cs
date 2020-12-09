@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Navigation;
-using WpfDotNetMvvmTemplate.Models;
+using SQLiteWpfMvvmExercise.Models;
 using System.Data.SQLite;
 using System.Windows.Documents;
 using System.Collections.Generic;
@@ -17,12 +17,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 
-namespace WpfDotNetMvvmTemplate.ViewModels
+namespace SQLiteWpfMvvmExercise.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
         #region Binding sources
-        public string Title { get; } = "Esercizio SQLite";
+        public string Title { get; } = "SQLite wpf mvvm exercise";
         public ObservableCollection<Member> Members { get; private set; } = new ObservableCollection<Member>();
 
         #region Editing menu

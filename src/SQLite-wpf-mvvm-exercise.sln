@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf-dotNet-mvvm-template", "Wpf-dotNet-mvvm-template\Wpf-dotNet-mvvm-template.csproj", "{B0F55965-E141-4B51-BD2F-03618CB1FFAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLite-wpf-mvvm-exercise", "Wpf-dotNet-mvvm-template\SQLite-wpf-mvvm-exercise.csproj", "{B0F55965-E141-4B51-BD2F-03618CB1FFAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 
-namespace WpfDotNetMvvmTemplate.ViewModels
+namespace SQLiteWpfMvvmExercise.ViewModels
 {
     public abstract class BaseViewModel : INotifyPropertyChanged
     {

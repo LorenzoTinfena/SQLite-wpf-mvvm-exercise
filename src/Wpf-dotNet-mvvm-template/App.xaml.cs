@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using WpfDotNetMvvmTemplate.Views;
+using SQLiteWpfMvvmExercise.Views;
 
-namespace WpfDotNetMvvmTemplate
+namespace SQLiteWpfMvvmExercise
 {
     public partial class App : Application
     {

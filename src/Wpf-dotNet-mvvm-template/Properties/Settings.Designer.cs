@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfDotNetMvvmTemplate.Properties {
+namespace SQLiteWpfMvvmExercise.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

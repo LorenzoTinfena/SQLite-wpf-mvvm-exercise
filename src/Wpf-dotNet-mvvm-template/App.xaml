@@ -1,7 +1,7 @@
-﻿<Application x:Class="WpfDotNetMvvmTemplate.App"
+﻿<Application x:Class="SQLiteWpfMvvmExercise.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfDotNetMvvmTemplate">
+             xmlns:local="clr-namespace:SQLiteWpfMvvmExercise">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

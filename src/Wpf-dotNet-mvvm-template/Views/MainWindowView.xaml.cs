@@ -1,10 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Media.TextFormatting;
-using WpfDotNetMvvmTemplate.Models;
-using WpfDotNetMvvmTemplate.ViewModels;
+using SQLiteWpfMvvmExercise.Models;
+using SQLiteWpfMvvmExercise.ViewModels;
 
-namespace WpfDotNetMvvmTemplate.Views
+namespace SQLiteWpfMvvmExercise.Views
 {
     public partial class MainWindowView : System.Windows.Window
     {

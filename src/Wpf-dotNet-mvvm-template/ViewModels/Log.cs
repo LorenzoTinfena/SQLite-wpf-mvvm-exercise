@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WpfDotNetMvvmTemplate.ViewModels
+namespace SQLiteWpfMvvmExercise.ViewModels
 {
     public static class Log
     {

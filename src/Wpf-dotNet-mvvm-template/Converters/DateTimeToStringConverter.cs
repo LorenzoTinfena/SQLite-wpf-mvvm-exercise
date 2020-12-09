@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-using WpfDotNetMvvmTemplate.ViewModels;
+using SQLiteWpfMvvmExercise.ViewModels;
 
-namespace WpfDotNetMvvmTemplate.Converters
+namespace SQLiteWpfMvvmExercise.Converters
 {
     class DateTimeToStringConverter : IValueConverter
     {
